@@ -1,27 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://2qmsyu1acp8o"]
+[gd_scene load_steps=6 format=3 uid="uid://dtafnxanpogqp"]
 
-[ext_resource type="PackedScene" uid="uid://dakq76q1ae2vb" path="res://car-quest/car.tscn" id="1_kgmpd"]
-[ext_resource type="PackedScene" path="res://car-quest/scenes/settings.tscn" id="2_wnpr4"]
-[ext_resource type="PackedScene" path="res://car-quest/scenes/wheelsettings.tscn" id="3_mqty5"]
+[ext_resource type="Texture2D" uid="uid://dc7kyglo50h4o" path="res://icon.svg" id="1_kgmpd"]
 
-[sub_resource type="Sky" id="Sky_twdyk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twdyk"]
+albedo_texture = ExtResource("1_kgmpd")
 
-[sub_resource type="Environment" id="Environment_wnpr4"]
-background_mode = 2
-sky = SubResource("Sky_twdyk")
-ambient_light_source = 1
-reflected_light_source = 1
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wnpr4"]
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_l7x84"]
+material = SubResource("StandardMaterial3D_wnpr4")
+size = Vector3(50, 1, 50)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_l7x84"]
+data = PackedVector3Array(-25, 0.5, 25, 25, 0.5, 25, -25, -0.5, 25, 25, 0.5, 25, 25, -0.5, 25, -25, -0.5, 25, 25, 0.5, -25, -25, 0.5, -25, 25, -0.5, -25, -25, 0.5, -25, -25, -0.5, -25, 25, -0.5, -25, 25, 0.5, 25, 25, 0.5, -25, 25, -0.5, 25, 25, 0.5, -25, 25, -0.5, -25, 25, -0.5, 25, -25, 0.5, -25, -25, 0.5, 25, -25, -0.5, -25, -25, 0.5, 25, -25, -0.5, 25, -25, -0.5, -25, 25, 0.5, 25, -25, 0.5, 25, 25, 0.5, -25, -25, 0.5, 25, -25, 0.5, -25, 25, 0.5, -25, -25, -0.5, 25, 25, -0.5, 25, -25, -0.5, -25, 25, -0.5, 25, 25, -0.5, -25, -25, -0.5, -25)
 
 [node name="Game" type="Node3D"]
 
-[node name="Environment" type="Node3D" parent="."]
+[node name="Ground" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_twdyk")
+mesh = SubResource("BoxMesh_l7x84")
 
-[node name="Car" parent="Environment" instance=ExtResource("1_kgmpd")]
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
 
-[node name="Wheel" parent="Environment/Car" instance=ExtResource("3_mqty5")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_l7x84")
 
-[node name="Settings" parent="Environment" instance=ExtResource("2_wnpr4")]
-anchors_preset = 15
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_wnpr4")
+[node name="VehicleBody3D" type="VehicleBody3D" parent="."]
