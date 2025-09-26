@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://q73aqrgut08n"]
+
+[ext_resource type="Script" uid="uid://dn86uawbv1gqi" path="res://rocket-dash/cloud/obstacle/obstacle.gd" id="1_utmkd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0gnf"]
+size = Vector2(22, 19)
+
+[node name="Obstacle" type="Area2D"]
+script = ExtResource("1_utmkd")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 20
+text = "x9"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11, 15.5)
+shape = SubResource("RectangleShape2D_h0gnf")
