@@ -16,4 +16,4 @@ func _on_obstacle_hit(op: String, val: int) -> void:
 		"+": score += val
 		"-": score -= val
 		"*": score *= val
-		"/": score = int(score / val)    
+		"/": score = int(score / val)
