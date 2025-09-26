@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://qcnqrdyhypss"]
+
+[ext_resource type="Texture2D" uid="uid://bie2ii3q2fv1e" path="res://platform-runner/Images/Restart.png" id="1_0oxbn"]
+[ext_resource type="Script" uid="uid://coaffv1ac6wqy" path="res://platform-runner/scripts/top_menu.gd" id="1_mmcjq"]
+
+[node name="Top Menu" type="CanvasLayer"]
+script = ExtResource("1_mmcjq")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 1072.0
+offset_right = 1152.0
+offset_bottom = 80.0
+texture_normal = ExtResource("1_0oxbn")
+stretch_mode = 0
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

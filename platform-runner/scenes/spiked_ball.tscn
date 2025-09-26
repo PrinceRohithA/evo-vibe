@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckti5ylnwbsmb"]
+
+[ext_resource type="Script" uid="uid://d2jr1pw1c533s" path="res://scripts/spiked_ball.gd" id="1_1mj2p"]
+[ext_resource type="Texture2D" uid="uid://b7wcqm65nc6bt" path="res://Images/Spiked Ball.png" id="1_e0rji"]
+[ext_resource type="Texture2D" uid="uid://c1fcr1142hpko" path="res://Images/Chain.png" id="2_pvk03"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nwwhs"]
+radius = 13.0
+
+[node name="Spiked Ball" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_1mj2p")
+
+[node name="Ball" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 72)
+texture = ExtResource("1_e0rji")
+
+[node name="Chain" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_pvk03")
+
+[node name="Chain2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 22)
+texture = ExtResource("2_pvk03")
+
+[node name="Chain3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 43)
+texture = ExtResource("2_pvk03")
+
+[node name="Chain4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 72)
+texture = ExtResource("2_pvk03")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 72)
+shape = SubResource("CircleShape2D_nwwhs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

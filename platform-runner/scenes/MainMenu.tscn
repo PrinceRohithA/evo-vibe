@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://i2ixif3kjupm"]
+
+[ext_resource type="Script" uid="uid://crl72ij6gc8qc" path="res://scripts/main_menu.gd" id="1_40gys"]
+[ext_resource type="Texture2D" uid="uid://b042ssh5hay74" path="res://Images/Brown.png" id="1_qobs7"]
+[ext_resource type="Texture2D" uid="uid://p8uy1qmauqla" path="res://Images/Levels.png" id="3_i1bv3"]
+[ext_resource type="PackedScene" uid="uid://cqfpdyjp3yh8d" path="res://scenes/collectable.tscn" id="4_mpayv"]
+[ext_resource type="Texture2D" uid="uid://dvnw166b7cmsc" path="res://Images/Character.png" id="5_nkljo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y1e83"]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_40gys")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qobs7")
+stretch_mode = 1
+
+[node name="Level" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 462.0
+offset_top = 309.0
+offset_right = 562.0
+offset_bottom = 409.0
+texture_normal = ExtResource("3_i1bv3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Level"]
+texture_filter = 1
+texture_repeat = 2
+layout_mode = 0
+offset_left = 20.0
+offset_top = 101.0
+offset_right = 80.0
+offset_bottom = 131.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Levels"
+
+[node name="character" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 582.0
+offset_top = 309.0
+offset_right = 682.0
+offset_bottom = 409.0
+texture_normal = ExtResource("5_nkljo")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="character"]
+texture_filter = 1
+texture_repeat = 2
+layout_mode = 0
+offset_left = -2.0
+offset_top = 101.0
+offset_right = 103.0
+offset_bottom = 131.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Character"
+
+[node name="Total Points" type="CanvasLayer" parent="."]
+
+[node name="Collectable" parent="Total Points" instance=ExtResource("4_mpayv")]
+position = Vector2(929, 68)
+script = null
+
+[node name="Panel" type="Panel" parent="Total Points"]
+texture_filter = 1
+offset_left = 967.0
+offset_top = 35.0
+offset_right = 1036.0
+offset_bottom = 99.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_y1e83")
+
+[node name="Total Points Label" type="Label" parent="Total Points/Panel"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = " *  0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Level" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="character" to="." method="_on_character_pressed"]

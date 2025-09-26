@@ -1,0 +1,132 @@
+[gd_scene load_steps=24 format=3 uid="uid://moxtlxaoxxxu"]
+
+[ext_resource type="Texture2D" uid="uid://b042ssh5hay74" path="res://Images/Brown.png" id="1_1ot1j"]
+[ext_resource type="Script" uid="uid://bnkxnwnyln4nc" path="res://scripts/level_menu.gd" id="1_j5y67"]
+[ext_resource type="Texture2D" uid="uid://hvwxl2g63jgi" path="res://Images/Levels/02.png" id="3_fww3s"]
+[ext_resource type="PackedScene" uid="uid://beu5n6c2jaoxv" path="res://scenes/level_button.tscn" id="3_lgknq"]
+[ext_resource type="Texture2D" uid="uid://bcd6ko58vpckf" path="res://Images/Levels/03.png" id="4_64j5d"]
+[ext_resource type="PackedScene" uid="uid://cempaox7lj2qb" path="res://Level Scenes/Level1.tscn" id="4_prnm7"]
+[ext_resource type="PackedScene" uid="uid://dv5on2kuh40jy" path="res://Level Scenes/Level2.tscn" id="6_331pj"]
+[ext_resource type="PackedScene" uid="uid://dbat2ubmuapvr" path="res://Level Scenes/Level3.tscn" id="8_nepd1"]
+[ext_resource type="Texture2D" uid="uid://cac1kugem2aw8" path="res://Images/Levels/04.png" id="9_ndy6q"]
+[ext_resource type="Texture2D" uid="uid://6kmkrnwg2uhl" path="res://Images/Previous.png" id="9_xvs3g"]
+[ext_resource type="PackedScene" uid="uid://21xt7744dn7m" path="res://Level Scenes/Level4.tscn" id="10_og6f6"]
+[ext_resource type="Texture2D" uid="uid://bggov2f13hlsw" path="res://Images/Levels/05.png" id="11_0s0rn"]
+[ext_resource type="PackedScene" uid="uid://ce64g1sybjx15" path="res://Level Scenes/Level5.tscn" id="11_mwy2d"]
+[ext_resource type="Texture2D" uid="uid://daaseidvd2ih2" path="res://Images/Levels/06.png" id="13_o8tx2"]
+[ext_resource type="PackedScene" uid="uid://b2p41scx0r0qr" path="res://Level Scenes/Level6.tscn" id="14_khuar"]
+[ext_resource type="Texture2D" uid="uid://c2ke4nfae4lpm" path="res://Images/Levels/07.png" id="15_kk7xq"]
+[ext_resource type="PackedScene" uid="uid://b5dyvakkyg00n" path="res://Level Scenes/Level7.tscn" id="16_ydoyp"]
+[ext_resource type="Texture2D" uid="uid://s2qfs87gk87p" path="res://Images/Levels/08.png" id="17_pt41t"]
+[ext_resource type="PackedScene" uid="uid://cmnaqd8uonq3c" path="res://Level Scenes/Level8.tscn" id="18_fcdiy"]
+[ext_resource type="Texture2D" uid="uid://b83dnfuh3bbri" path="res://Images/Levels/09.png" id="19_jdxwv"]
+[ext_resource type="PackedScene" uid="uid://or4fsycebvkw" path="res://Level Scenes/Level9.tscn" id="20_j6ywm"]
+[ext_resource type="PackedScene" uid="uid://cy4qnsnbt0uk1" path="res://Level Scenes/Level10.tscn" id="21_6cbka"]
+[ext_resource type="Texture2D" uid="uid://dss1ixqq4sqnu" path="res://Images/Levels/10.png" id="21_6lc62"]
+
+[node name="LevelMenu" type="Node"]
+script = ExtResource("1_j5y67")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1ot1j")
+stretch_mode = 1
+
+[node name="level1" parent="." instance=ExtResource("3_lgknq")]
+unlocked = true
+level = 1
+target_scene = ExtResource("4_prnm7")
+
+[node name="level2" parent="." instance=ExtResource("3_lgknq")]
+offset_left = 240.0
+offset_right = 320.0
+texture_normal = ExtResource("3_fww3s")
+unlocked = true
+level = 2
+target_scene = ExtResource("6_331pj")
+
+[node name="level3" parent="." instance=ExtResource("3_lgknq")]
+offset_left = 400.0
+offset_right = 480.0
+texture_normal = ExtResource("4_64j5d")
+unlocked = true
+level = 3
+target_scene = ExtResource("8_nepd1")
+
+[node name="level4" parent="." instance=ExtResource("3_lgknq")]
+offset_left = 560.0
+offset_right = 640.0
+texture_normal = ExtResource("9_ndy6q")
+unlocked = true
+level = 4
+target_scene = ExtResource("10_og6f6")
+
+[node name="level5" parent="." instance=ExtResource("3_lgknq")]
+offset_left = 720.0
+offset_right = 800.0
+texture_normal = ExtResource("11_0s0rn")
+unlocked = true
+level = 5
+target_scene = ExtResource("11_mwy2d")
+
+[node name="level6" parent="." instance=ExtResource("3_lgknq")]
+offset_left = 880.0
+offset_right = 960.0
+texture_normal = ExtResource("13_o8tx2")
+unlocked = true
+level = 6
+target_scene = ExtResource("14_khuar")
+
+[node name="level7" parent="." instance=ExtResource("3_lgknq")]
+offset_top = 240.0
+offset_bottom = 320.0
+texture_normal = ExtResource("15_kk7xq")
+unlocked = true
+level = 7
+target_scene = ExtResource("16_ydoyp")
+
+[node name="level8" parent="." instance=ExtResource("3_lgknq")]
+offset_left = 240.0
+offset_top = 240.0
+offset_right = 320.0
+offset_bottom = 320.0
+texture_normal = ExtResource("17_pt41t")
+unlocked = true
+level = 8
+target_scene = ExtResource("18_fcdiy")
+
+[node name="level9" parent="." instance=ExtResource("3_lgknq")]
+offset_left = 400.0
+offset_top = 240.0
+offset_right = 480.0
+offset_bottom = 320.0
+texture_normal = ExtResource("19_jdxwv")
+unlocked = true
+level = 9
+target_scene = ExtResource("20_j6ywm")
+
+[node name="level10" parent="." instance=ExtResource("3_lgknq")]
+offset_left = 560.0
+offset_top = 240.0
+offset_right = 640.0
+offset_bottom = 320.0
+texture_normal = ExtResource("21_6lc62")
+unlocked = true
+level = 10
+target_scene = ExtResource("21_6cbka")
+
+[node name="Back" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 1042.0
+offset_top = 540.0
+offset_right = 1122.0
+offset_bottom = 620.0
+texture_normal = ExtResource("9_xvs3g")
+stretch_mode = 0
+
+[connection signal="button_up" from="Back" to="." method="_on_back_button_up"]
