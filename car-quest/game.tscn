@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://2qmsyu1acp8o"]
+
+[ext_resource type="PackedScene" uid="uid://dakq76q1ae2vb" path="res://car-quest/car.tscn" id="1_kgmpd"]
+[ext_resource type="PackedScene" path="res://car-quest/scenes/settings.tscn" id="2_wnpr4"]
+[ext_resource type="PackedScene" path="res://car-quest/scenes/wheelsettings.tscn" id="3_mqty5"]
+
+[sub_resource type="Sky" id="Sky_twdyk"]
+
+[sub_resource type="Environment" id="Environment_wnpr4"]
+background_mode = 2
+sky = SubResource("Sky_twdyk")
+ambient_light_source = 1
+reflected_light_source = 1
+
+[node name="Game" type="Node3D"]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Car" parent="Environment" instance=ExtResource("1_kgmpd")]
+
+[node name="Wheel" parent="Environment/Car" instance=ExtResource("3_mqty5")]
+
+[node name="Settings" parent="Environment" instance=ExtResource("2_wnpr4")]
+anchors_preset = 15
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wnpr4")

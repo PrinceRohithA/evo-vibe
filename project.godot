@@ -18,10 +18,6 @@ config/icon="res://icon.svg"
 
 Global="*res://rocket-dash/global.gd"
 
-[display]
-
-window/stretch/mode="canvas_items"
-
 [filesystem]
 
 import/blender/enabled=false
