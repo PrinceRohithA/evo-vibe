@@ -2,7 +2,6 @@ extends Node
 
 
 #Rocket Dash
-
 var score: int = 0
 var previous_scores: Array = [0]
 
@@ -150,3 +149,5 @@ func addpoints():
 
 
 var car_on_track: bool
+
+var hearts_collected: int = 0

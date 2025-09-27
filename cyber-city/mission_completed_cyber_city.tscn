@@ -1,9 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2jjnsejqa6ux"]
+[gd_scene format=3 uid="uid://csu4hcagkie4m"]
 
-[ext_resource type="Script" uid="uid://bpbbw3hjr313d" path="res://rocket-dash/ui/mission_completed.gd" id="1_0x6or"]
-
-[node name="Misson Completed" type="CanvasLayer"]
-script = ExtResource("1_0x6or")
+[node name="MissionCompleted" type="CanvasLayer"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -29,15 +26,14 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 40
 text = "Mission Completed"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Control/VBoxContainer"]
+[node name="Label2" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Continue
-"
-
-[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
+text = "You are now free from the evil god."
+horizontal_alignment = 1
+vertical_alignment = 1

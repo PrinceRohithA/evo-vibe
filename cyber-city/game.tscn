@@ -1,16 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7wi3ql78t0cv"]
+[gd_scene load_steps=5 format=3 uid="uid://b7wi3ql78t0cv"]
 
+[ext_resource type="Script" uid="uid://dadxk6nxgu0vm" path="res://cyber-city/game.gd" id="1_kdwf4"]
 [ext_resource type="PackedScene" uid="uid://c4lccs8l5darl" path="res://addons/godot4.3_fps_character_controller/Player/player.tscn" id="2_6d5b1"]
 [ext_resource type="PackedScene" uid="uid://borv0sknhmdw1" path="res://cyber-city/cyber_city.tscn" id="2_imyo6"]
+[ext_resource type="PackedScene" uid="uid://dcu81a5tp3wk3" path="res://cyber-city/heart.tscn" id="3_imyo6"]
 
 [node name="Game" type="Node3D"]
+script = ExtResource("1_kdwf4")
 
-[node name="Player" parent="." instance=ExtResource("2_6d5b1")]
+[node name="player" parent="." instance=ExtResource("2_6d5b1")]
 
 [node name="cyber_city" parent="." instance=ExtResource("2_imyo6")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.105292134, 0.99444133, 0, -0.99444133, 0.105292134, 8.346411, 32.599613, -20.126778)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Heart" parent="Node3D" instance=ExtResource("3_imyo6")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -60.366936, 2.3614998, 31.99923)
+
+[node name="Heart2" parent="Node3D" instance=ExtResource("3_imyo6")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 49.490154, 3.301609, -43.657654)
+
+[node name="Heart3" parent="Node3D" instance=ExtResource("3_imyo6")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -24.741621, 2.3319664, 60.918747)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -29,10 +43,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -21.0
+offset_top = -80.0
+offset_right = 19.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 80

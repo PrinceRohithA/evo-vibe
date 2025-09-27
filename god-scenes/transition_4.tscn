@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://buiongjd43j1"]
+
+[ext_resource type="Script" uid="uid://8uj210tv6jnq" path="res://god-scenes/control.gd" id="1_x0njl"]
+[ext_resource type="PackedScene" uid="uid://b7wi3ql78t0cv" path="res://cyber-city/game.tscn" id="2_mqd15"]
+
+[node name="Transition4" type="Control"]
+layout_mode = 3
+anchor_right = 0.63100004
+anchor_bottom = 1.0
+offset_right = 0.08795166
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x0njl")
+ps = ExtResource("2_mqd15")
+full_text = "You have seen the birth of dimensions.\\n Now, behold refinement — worlds polished,\\n radiant, and alive.\\n Enter the future,\\n where evolution finds its ultimate form."
+goal_text = "Goal: collect 3 hearts."
+
+[node name="DialogLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Goal" type="Label" parent="."]
+layout_mode = 0
+offset_left = 741.0
+offset_right = 1151.0
+offset_bottom = 274.0
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TypeTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="TypeTimer" to="." method="_on_TypeTimer_timeout"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://hqhqyfx8u0e3"]
+
+[ext_resource type="Script" uid="uid://8uj210tv6jnq" path="res://god-scenes/control.gd" id="1_tyoo8"]
+[ext_resource type="PackedScene" uid="uid://vdach74u4bm3" path="res://rocket-dash/game.tscn" id="2_r7eol"]
+
+[node name="Transition5" type="Control"]
+layout_mode = 3
+anchor_right = 0.63100004
+anchor_bottom = 1.0
+offset_right = 0.08795166
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tyoo8")
+ps = ExtResource("2_r7eol")
+full_text = "You have walked through the ages —\\n from pixels to polished worlds.\\n This is the story of evolution, and you…\\n are its witness.\\n\\nTHE END."
+
+[node name="DialogLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 427.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Goal" type="Label" parent="."]
+layout_mode = 0
+offset_left = 741.0
+offset_right = 1151.0
+offset_bottom = 274.0
+theme_override_font_sizes/font_size = 25
+
+[node name="TypeTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="TypeTimer" to="." method="_on_TypeTimer_timeout"]
