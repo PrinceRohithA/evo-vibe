@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://fs1n3p53lhio"]
 
-[ext_resource type="Script" uid="uid://c0pa7awvni17r" path="res://car-quest/scripts/play_again_car_quest.gd" id="1_gcqgt"]
+[ext_resource type="Script" uid="uid://jn0oc347hwkc" path="res://car-quest/scenes/mission_completed_car_quest.gd" id="1_gcqgt"]
 
 [node name="MissionCompleted" type="CanvasLayer"]
 script = ExtResource("1_gcqgt")
