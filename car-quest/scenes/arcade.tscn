@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2xf4wuh2u4t6"]
+
+[ext_resource type="PackedScene" uid="uid://c3ixqkc6k13yi" path="res://car-quest/scenes/vehicle_controller.tscn" id="1_lup1j"]
+[ext_resource type="PackedScene" uid="uid://fo6kt54q87tf" path="res://car-quest/scenes/arcade_car.tscn" id="2_oiv4q"]
+[ext_resource type="PackedScene" uid="uid://b2hlchrj4h2b7" path="res://car-quest/scenes/engine_sound.tscn" id="4_r1tsm"]
+[ext_resource type="Script" uid="uid://cg3dgpgg3e34a" path="res://car-quest/scripts/gui.gd" id="5_haswc"]
+[ext_resource type="PackedScene" uid="uid://dxnvsoi1pvfeu" path="res://car-quest/scenes/track.tscn" id="6_3l0qk"]
+[ext_resource type="Script" uid="uid://d2fsttj1a37rd" path="res://car-quest/scripts/camera.gd" id="6_vitqy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ul6bn"]
+size = Vector3(61.902588, 2.524414, 1)
+
+[node name="Arcade" type="Node3D"]
+
+[node name="VehicleController" parent="." node_paths=PackedStringArray("vehicle_node") instance=ExtResource("1_lup1j")]
+vehicle_node = NodePath("VehicleRigidBody")
+
+[node name="VehicleRigidBody" parent="VehicleController" instance=ExtResource("2_oiv4q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.926611, 0)
+center_of_mass_mode = 1
+linear_damp_mode = 1
+angular_damp_mode = 1
+
+[node name="EngineSound" parent="VehicleController/VehicleRigidBody" node_paths=PackedStringArray("vehicle") instance=ExtResource("4_r1tsm")]
+max_db = -24.0
+vehicle = NodePath("..")
+
+[node name="GUI" type="Control" parent="." node_paths=PackedStringArray("vehicle")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_haswc")
+vehicle = NodePath("../VehicleController/VehicleRigidBody")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Speed" type="Label" parent="GUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="RPM" type="Label" parent="GUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Gear" type="Label" parent="GUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -328.0
+offset_top = 23.0
+offset_right = 323.0
+offset_bottom = 65.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Return to track or you will be eliminated in... "
+
+[node name="Timer" type="Timer" parent="GUI"]
+wait_time = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("follow_this")]
+transform = Transform3D(1, 0, 0, 0, 0.989776, 0.142629, 0, -0.142629, 0.989776, 4.05282, 1.58316, 5.80061)
+script = ExtResource("6_vitqy")
+follow_distance = 3
+follow_this = NodePath("../VehicleController/VehicleRigidBody")
+
+[node name="Demo" parent="." instance=ExtResource("6_3l0qk")]
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0493965, 9.030319)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6090088, -0.76220703, 0)
+shape = SubResource("BoxShape3D_ul6bn")
+
+[connection signal="timeout" from="GUI/Timer" to="GUI" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area3D" to="VehicleController" method="_on_area_3d_body_entered"]

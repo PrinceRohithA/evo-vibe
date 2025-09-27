@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7wi3ql78t0cv"]
+
+[ext_resource type="PackedScene" uid="uid://c4lccs8l5darl" path="res://addons/godot4.3_fps_character_controller/Player/player.tscn" id="2_6d5b1"]
+[ext_resource type="PackedScene" uid="uid://borv0sknhmdw1" path="res://cyber-city/cyber_city.tscn" id="2_imyo6"]
+
+[node name="Game" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("2_6d5b1")]
+
+[node name="cyber_city" parent="." instance=ExtResource("2_imyo6")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.105292134, 0.99444133, 0, -0.99444133, 0.105292134, 8.346411, 32.599613, -20.126778)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "."
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -147,3 +147,6 @@ func _process(_delta):
 func addpoints():
 	total_points += 1
 	total_points_label = " * " + str(total_points)
+
+
+var car_on_track: bool
